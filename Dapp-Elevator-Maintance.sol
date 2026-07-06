@@ -14,6 +14,7 @@ contract ElevatorMaintenance {
     uint256 public recordCount;
 
     event MaintenanceScheduled(
+        uint256 recordId,
         uint256 elevatorId,
         uint256 maintenanceDate,
         string maintenanceType,
@@ -36,6 +37,7 @@ contract ElevatorMaintenance {
 
         maintenanceRecords[recordCount] = newRecord;
         emit MaintenanceScheduled(
+            recordCount,
             _elevatorId,
             _maintenanceDate,
             _maintenanceType,
