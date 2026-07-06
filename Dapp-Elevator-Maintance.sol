@@ -27,6 +27,10 @@ contract ElevatorMaintenance {
         string memory _maintenanceType,
         string memory _technician
     ) public {
+        require(_maintenanceDate > 0, "Maintenance date is required");
+        require(bytes(_maintenanceType).length > 0, "Maintenance type is required");
+        require(bytes(_technician).length > 0, "Technician is required");
+
         MaintenanceRecord memory newRecord = MaintenanceRecord(
             _elevatorId,
             _maintenanceDate,
